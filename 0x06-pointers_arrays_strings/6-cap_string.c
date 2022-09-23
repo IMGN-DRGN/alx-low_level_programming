@@ -1,31 +1,36 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "main.h"
+
 /**
- * cap_string - capitalizes all words of a string
- * @s: input string.
- * Return: the pointer to dest.
- */
+  * cap_string - ...
+  * @s: ...
+  *
+  * Return: char value
+  */
 
+char *cap_string(char *s)
 
-char *cap_string(char *s)
 {
-int count = 0, i;
-int separators[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+	int a = 0, i;
+	int cspc = 13;
+	char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
 
-if (*(s + count) >= 97 && *(s + count) <= 122)
-*(s + count) = *(s + count) - 32;
-count++;
-while (*(s + count) != '\0')
-{
-for (i = 0; i < 13; i++)
-{
-if (*(s + count) == separators[i])
-{
-if ((*(s + (count + 1)) >= 97) && (*(s + (count + 1)) <= 122))
-*(s + (count + 1)) = *(s + (count + 1)) - 32;
-break;
-}
-}
-count++;
-}
-return (s);
+	while (s[a])
+	{
+		i = 0;
+
+		while (i < cspc)
+		{
+			if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
+				s[a] -= 32;
+
+			i++;
+		}
+
+		a++;
+	}
+
+	return (s);
 }
