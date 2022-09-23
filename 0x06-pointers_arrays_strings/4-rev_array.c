@@ -1,25 +1,32 @@
-#include "main.h"
-/** 
-  * reverse_array - reverse 
-  * @a : pointer to int params 
-  * @n : pointer to int params 
-  * Return: no 
-  */ 
-  
- void reverse_array(int *a, int n) 
- { 
-         int i; 
-         int j; 
-         int tmp; 
-  
-         i = 0; 
-         j = n - 1; 
-  
-         while (i < j) 
-         { 
-                 tmp = a[i]; 
-                 a[i] = a[j]; 
-                 a[j] = tmp; 
-                 i++; 
-                 j--; 
-         } 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "main.h"
+
+/**
+  * reverse_array - Reverses the content of an array of integers
+  * @a: An array of integers
+  * @n: Number of elements to swap
+  *
+  * Return: empty
+  */
+
+void reverse_array(int *a, int n)
+
+{
+int *p, i, aux, k;
+
+p = a;
+
+for (i = 1; i < n; i++)
+{
+p++
+}
+
+for (k = 0; k < i / 2; k++)
+{
+aux = a[k];
+a[k] = *p;
+*p = aux;
+}
+}
