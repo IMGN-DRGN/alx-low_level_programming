@@ -1,29 +1,36 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "main.h"
+
 /**
- * rot13 - encodes a string using rot13
- * @s: input string.
- * Return: the pointer to dest.
- */
+  * rot13 - ...
+  * @s: ...
+  *
+  * Return: ...
+  */
 
-char *rot13(char *s)
-{
-int count = 0, i;
-char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+char *rot13(char *s)
 
-while (*(s + count) != '\0')
 {
+	int a = 0;
 
-for (i = 0; i < 52; i++)
-{
-if (*(s + count) == alphabet[i])
-{
-*(s + count) = rot13[i];
-break;
-}
-}
-count++;
-}
+	while (s[a])
+	{
+		while ((s[a] >= 'a' && s[a] <= 'z') || (s[a] >= 'A' && s[a] <= 'Z'))
+		{
+			if ((s[a] > 'm' && s[a] <= 'z') || (s[a] > 'M' && s[a] <= 'Z'))
+			{
+				s[a] -= 13;
+				break;
+			}
 
-return (s);
+			s[a] += 13;
+			break;
+		}
+
+		a++;
+	}
+
+	return (s);
 }
